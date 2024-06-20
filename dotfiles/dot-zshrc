@@ -1,0 +1,44 @@
+# Set the configuration file for Starship prompt
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
+# Initialize Starship prompt for Zsh
+eval "$(starship init zsh)"
+
+# Define the installation path for Zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Ensure the Zinit directory exists
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+
+# Clone the Zinit repository if it's not already cloned
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+
+# Source the Zinit script to enable its functionality
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Configure tmux module settings for Prezto
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:session' name 'default'
+
+# Enable and configure history-search-multi-word plugin
+zstyle ':plugin:history-search-multi-word' active 'standout'
+
+# Load Zsh completions plugin
+zinit load zsh-users/zsh-completions
+
+# Load history-search-multi-word plugin
+zinit load zdharma-continuum/history-search-multi-word
+zinit load zsh-users/zsh-history-substring-search
+
+# Load autosuggestions plugin
+zinit light zsh-users/zsh-autosuggestions
+
+# Load fast-syntax-highlighting plugin
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+# Load various Prezto modules using snippets
+zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/directory/init.zsh'
+zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/helper/init.zsh'
+zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/tmux/init.zsh'
+zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/macports/init.zsh'
+zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
