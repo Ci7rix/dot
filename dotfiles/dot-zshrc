@@ -1,7 +1,6 @@
 # Set the configuration file for Starship prompt
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
-export MYVIMRC=$HOME/.config/vim/.vimrc
 # Initialize Starship prompt for Zsh
 eval "$(starship init zsh)"
 
@@ -21,25 +20,35 @@ source "${ZINIT_HOME}/zinit.zsh"
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
 zstyle ':prezto:module:tmux:session' name 'default'
 
-# Enable and configure history-search-multi-word plugin
-zstyle ':plugin:history-search-multi-word' active 'standout'
-
-# Load Zsh completions plugin
-zinit load zsh-users/zsh-completions
-
-# Load history-search-multi-word plugin
-zinit load zdharma-continuum/history-search-multi-word
-zinit load zsh-users/zsh-history-substring-search
-
-# Load autosuggestions plugin
-zinit light zsh-users/zsh-autosuggestions
-
-# Load fast-syntax-highlighting plugin
-zinit light zdharma-continuum/fast-syntax-highlighting
+# Configure ssh module settings for Prezto
+zstyle ':prezto:module:ssh:load' identities 'id_unset' 'id_yena'
 
 # Load various Prezto modules using snippets
-zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/directory/init.zsh'
-zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/helper/init.zsh'
-zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/tmux/init.zsh'
-zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/macports/init.zsh'
-zinit snippet 'https://github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh'
+zinit snippet PZTM::environment
+zinit snippet PZTM::history
+zinit snippet PZTM::directory
+zinit snippet PZTM::spectrum
+zinit snippet PZTM::utility
+zinit snippet PZTM::helper
+zinit snippet PZTM::tmux
+zinit snippet PZTM::macports
+zinit snippet PZTM::completion
+zinit snippet PZTM::ssh
+
+# Load Zsh syntax highlighting and autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+
+# Unbind the default keybindings for the up and down arrow keys
+bindkey -r '^[[A'
+bindkey -r '^[[B'
+
+# Define a function to bind history substring search to up and down arrow keys
+function __bind_history_keys() {
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+}
+
+# History substring searching
+zinit ice wait lucid atload'__bind_history_keys'
+zinit light zsh-users/zsh-history-substring-search
