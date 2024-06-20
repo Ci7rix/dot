@@ -1,6 +1,7 @@
 # Set the configuration file for Starship prompt
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
+export MYVIMRC=$HOME/.config/vim/.vimrc
 # Initialize Starship prompt for Zsh
 eval "$(starship init zsh)"
 
