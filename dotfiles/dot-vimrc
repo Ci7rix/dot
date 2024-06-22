@@ -8,7 +8,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'itchyny/lightline.vim'
-Plug 'nordtheme/vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 
 " Auto install missing plugins
@@ -18,16 +18,9 @@ autocmd VimEnter *
       \| endif
 
 " Look and feel
-colorscheme nord
+colorscheme catppuccin_mocha
 
-let g:nord_bold_vertical_split_line = 1
-let g:nord_cursor_line_number_background = 1
-
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'separator': { 'left': "", 'right': "" },
-      \ 'subseparator': { 'left': "", 'right': "" }
-      \}
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
 " You want Vim, not vi. When Vim finds a vimrc, 'nocompatible' is set anyway.
 " We set it explicitely to make our position clear!
