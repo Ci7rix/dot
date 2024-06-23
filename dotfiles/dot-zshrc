@@ -23,11 +23,15 @@ zstyle ':prezto:module:tmux:session' name 'default'
 # Configure ssh module settings for Prezto
 zstyle ':prezto:module:ssh:load' identities 'id_unset' 'id_yena'
 
+# Configure utility module settings for Prezto
+zstyle ':prezto:module:utility:ls' color 'yes'
+
 # Load various Prezto modules using snippets
 zinit snippet PZTM::environment
 zinit snippet PZTM::history
 zinit snippet PZTM::directory
 zinit snippet PZTM::spectrum
+zinit snippet PZTM::gnu-utility
 zinit snippet PZTM::utility
 zinit snippet PZTM::helper
 zinit snippet PZTM::tmux
