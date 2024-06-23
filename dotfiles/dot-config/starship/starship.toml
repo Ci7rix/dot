@@ -266,3 +266,6 @@ symbol = "terraform "
 
 [zig]
 symbol = "zig "
+
+[battery]
+disabled = true

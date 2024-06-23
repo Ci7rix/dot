@@ -1,3 +1,4 @@
+FONTS_DIR=$(shell pwd)/fonts
 MODULES_DIR=$(shell pwd)/modules
 
 all: defaults installomator macport touchid dotfiles
@@ -12,6 +13,10 @@ defaults:
 		echo "Error executing defaults.sh. Exiting."; \
 		exit 1; \
 	fi
+
+fonts-monaspace:
+	@echo "Installing fonts..."
+	cp $(FONTS_DIR)/Monaspace/MonaspiceArNerdFontMono-*.otf ~/Library/Fonts
 
 installomator:
 	@echo "Executing installomator.sh..."
