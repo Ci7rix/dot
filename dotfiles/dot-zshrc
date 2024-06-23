@@ -39,6 +39,8 @@ zinit snippet PZTM::macports
 zinit snippet PZTM::completion
 zinit snippet PZTM::ssh
 
+zinit snippet 'https://github.com/catppuccin/zsh-syntax-highlighting/blob/main/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh'
+
 # Load Zsh syntax highlighting and autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
