@@ -3,7 +3,7 @@ MODULES_DIR=$(shell pwd)/modules
 
 all: defaults installomator macport touchid dotfiles
 
-dot:
+dots:
 	stow -v --ignore ".DS_Store" --dotfiles -t ~ dotfiles --adopt
 
 defaults:

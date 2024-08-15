@@ -1,11 +1,5 @@
-# Set the configuration file for Starship prompt
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-
 # Initialize Starship prompt for Zsh
 eval "$(starship init zsh)"
-
-# Define the installation path for Zinit
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Ensure the Zinit directory exists
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -59,3 +53,11 @@ function __bind_history_keys() {
 # History substring searching
 zinit ice wait lucid atload'__bind_history_keys'
 zinit light zsh-users/zsh-history-substring-search
+
+# Sourcing the custom aliases
+source $XDG_CONFIG_HOME/zsh/aliases.zsh
+
+# Setting up completions
+fpath=("$XDG_CONFIG_HOME/zsh/completions" $fpath)
+autoload -Uz compinit
+compinit
