@@ -20,6 +20,7 @@ ports=(
     iperf3
     zsh
     git
+    starship
 )
 
 # Do not modify after this line
@@ -77,6 +78,9 @@ else
     sudo installer -verbose -dumplog -pkg "$tmp_dir"/MacPorts.pkg -target /
     echo "Insallomator version $appNewVersion installed"
 fi
+
+# Updating macport
+sudo /opt/local/bin/port selfupdate
 
 # Installing apps
 for port in "${ports[@]}"; do

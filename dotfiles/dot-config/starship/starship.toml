@@ -106,6 +106,7 @@ symbol = "gcp "
 
 [git_branch]
 symbol = "git "
+ignore_branches = ["master", "main"]
 
 [gleam]
 symbol = "gleam "
@@ -209,6 +210,7 @@ Windows = "win "
 
 [package]
 symbol = "pkg "
+disabled = true
 
 [perl]
 symbol = "pl "
