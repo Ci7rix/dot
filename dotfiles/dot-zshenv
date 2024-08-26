@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export TERM='rxvt-256color'
+export TERM='xterm-256color'
 export DOTFILES="$HOME/.dotfiles"
 
 # XDG
